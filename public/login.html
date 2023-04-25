@@ -1,5 +1,92 @@
-<form action="servlet1" method="post">  
-    Name:<input type="text" name="username"/><br/><br/>  
-    Password:<input type="password" name="userpass"/><br/><br/>  
-    <input type="submit" value="login"/>  
-    </form>  
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign In/Sign Up Page</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		input[type="text"], input[type="password"], input[type="email"] {
+			margin: 10px;
+			padding: 5px;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			width: 250px;
+			max-width: 100%;
+			font-size: 16px;
+			font-family: Arial, sans-serif;
+		}
+
+		input[type="submit"] {
+			margin: 20px;
+			padding: 10px;
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 18px;
+			font-family: Arial, sans-serif;
+		}
+
+		.error {
+			color: red;
+			font-size: 14px;
+			font-family: Arial, sans-serif;
+			margin: 5px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Sign In/Sign Up Page</h1>
+	<form id="signup" onsubmit="return signUp();">
+		<h2>Sign Up</h2>
+		<input type="text" id="signup-username" placeholder="Username">
+		<input type="password" id="signup-password" placeholder="Password">
+		<input type="password" id="signup-confirm-password" placeholder="Confirm Password">
+		<input type="email" id="signup-email" placeholder="Email">
+		<input type="submit" value="Sign Up">
+		<p id="signup-error" class="error"></p>
+	</form>
+	<form id="signin" onsubmit="return signIn();">
+		<h2>Sign In</h2>
+		<input type="text" id="signin-username" placeholder="Username">
+		<input type="password" id="signin-password" placeholder="Password">
+		<input type="submit" value="Sign In">
+		<p id="signin-error" class="error"></p>
+	</form>
+	<script>
+		function signUp() {
+			var username = document.getElementById("signup-username").value;
+			var password = document.getElementById("signup-password").value;
+			var confirmPassword = document.getElementById("signup-confirm-password").value;
+			var email = document.getElementById("signup-email").value;
+			var error = document.getElementById("signup-error");
+			if (!username || !password || !confirmPassword || !email) {
+				error.innerHTML = "Please fill in all fields.";
+				return false;
+			}
+			if (password !== confirmPassword) {
+				error.innerHTML = "Passwords do not match.";
+				return false;
+			}
+			// Send form data to server for registration
+			// ...
+			alert("Successfully registered!");
+			return true;
+		}
+
+		function signIn() {
+			var username = document.getElementById("signin-username").value;
+			var password = document.getElementById("signin-password").value;
+			var error = document.getElementById("signin-error");
+			if (!username || !password) {
+				error.innerHTML = "Please fill in all fields.";
+				return false;
+			}
+        }
