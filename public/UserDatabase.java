@@ -3,10 +3,10 @@ import java.sql.*;
 public class UserDatabase {
 
    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-   static final String DB_URL = "jdbc:mysql://localhost/USER";
+   static final String DB_URL = "jdbc:mysql://localhost/127.0.0.1:3306";
 
-   static final String USER = "username";
-   static final String PASS = "password";
+   static final String USER = "admin";
+   static final String PASS = "Bennett@123";
 
    public static void main(String[] args) {
       Connection conn = null;
